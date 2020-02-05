@@ -12,11 +12,11 @@
 
 ### Выполнение
 
-1. [ProductCategory](docs/step01.md)
-2. [CatalogueProduct](docs/step02.md)
-3. [ProductCount](docs/step03.md)
-4. [Product Category List](docs/step04.md)
-5. [Async HiveService+HivesController](docs/step05.md)
+1. [ProductCategory](docs/step01.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+2. [CatalogueProduct](docs/step02.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+3. [ProductCount](docs/step03.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+4. [Product Category List](docs/step04.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+5. [Async HiveService+HivesController](docs/step05.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 6. [Hive List](docs/step06.md)
 7. [HiveSectionsController Deadlock](docs/step07.md)
 8. [Hive Section List](docs/step08.md)
