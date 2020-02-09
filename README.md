@@ -17,9 +17,9 @@
 3. [ProductCount](docs/step03.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 4. [Product Category List](docs/step04.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 5. [Async HiveService+HivesController](docs/step05.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
-6. [Hive List](docs/step06.md)
-7. [HiveSectionsController Deadlock](docs/step07.md)
-8. [Hive Section List](docs/step08.md)
+6. [Hive List](docs/step06.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+7. [HiveSectionsController Deadlock](docs/step07.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+8. [Hive Section List](docs/step08.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 9. [SetStatus](docs/step09.md)
 10. [Delete/Restore](docs/step10.md)
 11. [HiveController](docs/step11.md)
