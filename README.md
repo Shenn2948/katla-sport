@@ -20,8 +20,8 @@
 6. [Hive List](docs/step06.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 7. [HiveSectionsController Deadlock](docs/step07.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 8. [Hive Section List](docs/step08.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
-9. [SetStatus](docs/step09.md)
-10. [Delete/Restore](docs/step10.md)
+9. [SetStatus](docs/step09.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+10. [Delete/Restore](docs/step10.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 11. [HiveController](docs/step11.md)
 12. [Hive Editor](docs/step12.md)
 13. [HiveSectionsController+HiveSectionService](docs/step13.md)
