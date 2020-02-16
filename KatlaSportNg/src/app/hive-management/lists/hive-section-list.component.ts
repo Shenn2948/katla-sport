@@ -23,16 +23,6 @@ export class HiveSectionListComponent implements OnInit {
     this.route.params.subscribe(p => {
       this.hiveId = p['id'];
       this.hiveService.getHiveSections(this.hiveId).subscribe(s => this.hiveSections = s);
-    })
-  }
-
-  onDelete(hiveId: number) {
-    var hive = this.hiveSections.find(h => h.id == hiveId);
-    this.hiveService.setHiveStatus(hiveId, true).subscribe(c => hive.isDeleted = true);
-  }
-
-  onUndelete(hiveId: number) {
-    var hive = this.hiveSections.find(h => h.id == hiveId);
-    this.hiveService.setHiveStatus(hiveId, false).subscribe(c => hive.isDeleted = false);
+    });
   }
 }
