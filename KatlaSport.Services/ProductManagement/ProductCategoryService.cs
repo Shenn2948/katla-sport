@@ -96,7 +96,7 @@ namespace KatlaSport.Services.ProductManagement
             await _context.SaveChangesAsync();
 
             dbCategories = await _context.Categories.Where(c => c.Id == categoryId).ToArrayAsync();
-            return dbCategories.Select(c => Mapper.Map<ProductCategory>(c)).FirstOrDefault();
+            return dbCategories.Select(Mapper.Map<ProductCategory>).FirstOrDefault();
         }
 
         /// <inheritdoc/>
