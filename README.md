@@ -24,5 +24,5 @@
 10. [Delete/Restore](docs/step10.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 11. [HiveController](docs/step11.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20"> 
 12. [Hive Editor](docs/step12.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
-13. [HiveSectionsController+HiveSectionService](docs/step13.md)
+13. [HiveSectionsController+HiveSectionService](docs/step13.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 14. [Hive Sectior Editor](docs/step14.md)
