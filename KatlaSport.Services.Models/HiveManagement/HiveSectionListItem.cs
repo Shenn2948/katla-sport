@@ -24,5 +24,7 @@
         /// Gets or sets a value indicating whether a hive is deleted.
         /// </summary>
         public bool IsDeleted { get; set; }
+
+        public int StoreHiveId { get; set; }
     }
 }
