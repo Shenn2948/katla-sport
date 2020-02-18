@@ -25,6 +25,8 @@
         /// </summary>
         public bool IsDeleted { get; set; }
 
+        /// <summary>Gets or sets the store hive identifier.</summary>
+        /// <value>The store hive identifier.</value>
         public int StoreHiveId { get; set; }
     }
 }
