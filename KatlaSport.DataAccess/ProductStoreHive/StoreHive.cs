@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using KatlaSport.DataAccess.ProductStoreHiveAdmin;
 
 namespace KatlaSport.DataAccess.ProductStoreHive
 {
@@ -44,7 +45,7 @@ namespace KatlaSport.DataAccess.ProductStoreHive
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or sets an updator's identifier.
+        /// Gets or sets an updater's identifier.
         /// </summary>
         public int LastUpdatedBy { get; set; }
 
@@ -52,6 +53,16 @@ namespace KatlaSport.DataAccess.ProductStoreHive
         /// Gets or sets a timestamp when the hive was updated last time.
         /// </summary>
         public DateTime LastUpdated { get; set; }
+
+        /// <summary>
+        /// Gets or sets a HiveAdmin ID.
+        /// </summary>
+        public int? HiveAdminId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a HiveAdmin.
+        /// </summary>
+        public virtual HiveAdmin HiveAdmin { get; set; }
 
         /// <summary>
         /// Gets or sets a collection of sections for the store hive.

@@ -10,7 +10,7 @@ namespace KatlaSport.Services.HiveManagement
         /// Gets a list of hive admin sections.
         /// </summary>
         /// <returns>A <see cref="Task{TResult}"/>.</returns>
-        Task<List<HiveAdminListItem>> GetHiveAdminsAsync();
+        Task<List<HiveAdmin>> GetHiveAdminsAsync();
 
         /// <summary>
         /// Gets a hive admin section.
@@ -18,14 +18,6 @@ namespace KatlaSport.Services.HiveManagement
         /// <param name="id">A hive admin section identifier.</param>
         /// <returns>A <see cref="Task{HiveAdmin}"/>.</returns>
         Task<HiveAdmin> GetHiveAdminAsync(int id);
-
-        /// <summary>
-        /// Sets deleted status for a hive admin.
-        /// </summary>
-        /// <param name="HiveAdminId">A hive admin identifier.</param>
-        /// <param name="deletedStatus">Status.</param>
-        /// <returns>A <see cref="Task"/>.</returns>
-        Task SetStatusAsync(int HiveAdminId, bool deletedStatus);
 
         /// <summary>
         /// Creates a new hive admin.

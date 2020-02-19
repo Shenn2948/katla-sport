@@ -13,10 +13,5 @@ namespace KatlaSport.Services.HiveManagement
         /// Gets or sets a hive admin name.
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether a hive admin is deleted.
-        /// </summary>
-        public bool IsDeleted { get; set; }
     }
 }

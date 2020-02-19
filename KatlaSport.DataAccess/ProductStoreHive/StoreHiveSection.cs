@@ -40,7 +40,7 @@ namespace KatlaSport.DataAccess.ProductStoreHive
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or sets an updator's identifier.
+        /// Gets or sets an updater's identifier.
         /// </summary>
         public int LastUpdatedBy { get; set; }
 
