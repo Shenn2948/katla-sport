@@ -1,8 +1,8 @@
 ﻿using System;
-
 using AutoMapper;
 using DataAccessHive = KatlaSport.DataAccess.ProductStoreHive.StoreHive;
 using DataAccessHiveSection = KatlaSport.DataAccess.ProductStoreHive.StoreHiveSection;
+using DataAccessHiveAdmin = KatlaSport.DataAccess.ProductStoreHiveAdmin.HiveAdmin;
 
 namespace KatlaSport.Services.HiveManagement
 {
@@ -10,6 +10,8 @@ namespace KatlaSport.Services.HiveManagement
     {
         public HiveManagementMappingProfile()
         {
+            CreateMap<UpdateHiveAdminRequest, DataAccessHiveAdmin>();
+
             CreateMap<DataAccessHive, HiveListItem>();
             CreateMap<DataAccessHive, Hive>();
             CreateMap<DataAccessHiveSection, HiveSectionListItem>();

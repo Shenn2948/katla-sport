@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Diagnostics;
 using KatlaSport.DataAccess.CustomerCatalogue;
 using KatlaSport.DataAccess.ProductCatalogue;
 using KatlaSport.DataAccess.ProductStore;
 using KatlaSport.DataAccess.ProductStoreHive;
+using KatlaSport.DataAccess.ProductStoreHiveAdmin;
 
 namespace KatlaSport.DataAccess.Migrations
 {
@@ -396,6 +398,8 @@ namespace KatlaSport.DataAccess.Migrations
                     Address = "Brest, Repina-7",
                     Phone = "+37529-9832872"
                 });
+
+            //context.HiveAdmins.AddOrUpdate(i => i.Id, new HiveAdmin(){Id = 1, Name = "Andrew", StoreHives = new List<StoreHive>()});
         }
     }
 }
