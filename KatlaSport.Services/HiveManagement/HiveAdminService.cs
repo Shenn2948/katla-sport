@@ -64,24 +64,24 @@ namespace KatlaSport.Services.HiveManagement
         }
 
         /// <inheritdoc/>
-        public async Task<HiveAdmin> UpdateHiveAdminAsync(int HiveAdminId, UpdateHiveAdminRequest updateRequest)
+        public async Task<HiveAdmin> UpdateHiveAdminAsync(int hiveAdminId, UpdateHiveAdminRequest updateRequest)
         {
-            var dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == HiveAdminId).ToArrayAsync();
+            var dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
             var dbHiveAdmin = dbHiveAdmins.FirstOrDefault() ?? throw new RequestedResourceNotFoundException();
 
             Mapper.Map(updateRequest, dbHiveAdmin);
 
             await _context.SaveChangesAsync();
 
-            dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == HiveAdminId).ToArrayAsync();
+            dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
 
             return dbHiveAdmins.Select(Mapper.Map<HiveAdmin>).FirstOrDefault();
         }
 
         /// <inheritdoc/>
-        public async Task DeleteHiveAdminAsync(int HiveAdminId)
+        public async Task DeleteHiveAdminAsync(int hiveAdminId)
         {
-            var dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == HiveAdminId).ToArrayAsync();
+            var dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
 
             if (dbHiveAdmins.Length == 0)
             {
