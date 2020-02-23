@@ -14,6 +14,7 @@ namespace KatlaSport.DataAccess.ProductStoreHiveAdmin
             HasKey(i => i.Id);
             Property(i => i.Id).HasColumnName("product_store_hive_admin_id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(i => i.Name).HasColumnName("product_store_hive_admin_name").HasMaxLength(60).IsRequired();
+            HasOptional(i => i.ImageFile).WithRequired(i => i.HiveAdmin);
         }
     }
 }

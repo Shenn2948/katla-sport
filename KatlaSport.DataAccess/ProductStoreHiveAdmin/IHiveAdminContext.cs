@@ -7,5 +7,9 @@
         /// <summary>Gets the hive admins.</summary>
         /// <value>The hive admins.</value>
         IEntitySet<HiveAdmin> HiveAdmins { get; }
+
+        /// <summary>Gets the image files.</summary>
+        /// <value>The image files.</value>
+        IEntitySet<ImageFile> ImageFiles { get; }
     }
 }

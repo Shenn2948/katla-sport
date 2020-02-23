@@ -1,5 +1,4 @@
-﻿
-namespace KatlaSport.Services.HiveManagement
+﻿namespace KatlaSport.Services.HiveManagement
 {
     /// <summary>Hive admin.</summary>
     public class HiveAdmin
@@ -13,5 +12,9 @@ namespace KatlaSport.Services.HiveManagement
         /// Gets or sets a hive admin name.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>Gets or sets the image file identifier.</summary>
+        /// <value>The image file identifier.</value>
+        public int? ImageFileId { get; set; }
     }
 }

@@ -74,6 +74,10 @@ namespace KatlaSport.DataAccess
         /// <value>The hive admins.</value>
         public DbSet<HiveAdmin> HiveAdmins { get; set; }
 
+        /// <summary>Gets or sets the image files.</summary>
+        /// <value>The image files.</value>
+        public DbSet<ImageFile> ImageFiles { get; set; }
+
         /// <summary>
         /// Overrides base method.
         /// </summary>

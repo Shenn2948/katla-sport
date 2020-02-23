@@ -8,5 +8,7 @@
         }
 
         public IEntitySet<HiveAdmin> HiveAdmins => GetDbSet<HiveAdmin>();
+
+        public IEntitySet<ImageFile> ImageFiles => GetDbSet<ImageFile>();
     }
 }

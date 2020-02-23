@@ -20,7 +20,7 @@ namespace KatlaSport.DataAccess.ProductStoreHive
             Property(i => i.LastUpdated).HasColumnName("updated_utc").IsRequired();
 
             Property(i => i.HiveAdminId).HasColumnName("product_hive_hiveAdmin_id");
-            HasOptional(i => i.HiveAdmin);
+            HasOptional(i => i.HiveAdmin).WithMany(i => i.StoreHives).HasForeignKey(i => i.HiveAdminId);
         }
     }
 }

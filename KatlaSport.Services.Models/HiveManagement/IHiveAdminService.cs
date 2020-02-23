@@ -29,16 +29,16 @@ namespace KatlaSport.Services.HiveManagement
         /// <summary>
         /// Updates an existed hive admin.
         /// </summary>
-        /// <param name="HiveAdminId">A hive admin identifier.</param>
+        /// <param name="hiveAdminId">A hive admin identifier.</param>
         /// <param name="updateRequest">A <see cref="UpdateHiveAdminRequest"/>.</param>
         /// <returns>A <see cref="Task{HiveAdmin}"/>.</returns>
-        Task<HiveAdmin> UpdateHiveAdminAsync(int HiveAdminId, UpdateHiveAdminRequest updateRequest);
+        Task<HiveAdmin> UpdateHiveAdminAsync(int hiveAdminId, UpdateHiveAdminRequest updateRequest);
 
         /// <summary>
         /// Deletes an existed hive admin.
         /// </summary>
-        /// <param name="HiveAdminId">A hive admin identifier.</param>
+        /// <param name="hiveAdminId">A hive admin identifier.</param>
         /// <returns>A <see cref="Task"/>.</returns>
-        Task DeleteHiveAdminAsync(int HiveAdminId);
+        Task DeleteHiveAdminAsync(int hiveAdminId);
     }
 }
