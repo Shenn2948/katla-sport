@@ -1,5 +1,8 @@
 ﻿namespace KatlaSport.Services.HiveManagement
 {
+    /// <summary>
+    /// Image file.
+    /// </summary>
     public class ImageFile
     {
         /// <summary>Gets or sets the identifier.</summary>

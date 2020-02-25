@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using AutoMapper;
-
 using KatlaSport.DataAccess;
 using KatlaSport.DataAccess.ProductStoreHiveAdmin;
-
 using DbHiveAdmin = KatlaSport.DataAccess.ProductStoreHiveAdmin.HiveAdmin;
+using DbHiveAdminImage = KatlaSport.DataAccess.ProductStoreHiveAdmin.ImageFile;
 
 namespace KatlaSport.Services.HiveManagement
 {
@@ -66,10 +64,27 @@ namespace KatlaSport.Services.HiveManagement
         /// <inheritdoc/>
         public async Task<HiveAdmin> UpdateHiveAdminAsync(int hiveAdminId, UpdateHiveAdminRequest updateRequest)
         {
-            var dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
-            var dbHiveAdmin = dbHiveAdmins.FirstOrDefault() ?? throw new RequestedResourceNotFoundException();
+            DbHiveAdmin[] dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
+            DbHiveAdmin dbHiveAdmin = dbHiveAdmins.FirstOrDefault() ?? throw new RequestedResourceNotFoundException();
 
             Mapper.Map(updateRequest, dbHiveAdmin);
+
+            await _context.SaveChangesAsync();
+
+            dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
+
+            return dbHiveAdmins.Select(Mapper.Map<HiveAdmin>).FirstOrDefault();
+        }
+
+        /// <inheritdoc/>
+        public async Task<HiveAdmin> UpdateHiveAdminImageAsync(int hiveAdminId, ImageFile image)
+        {
+            DbHiveAdmin[] dbHiveAdmins = await _context.HiveAdmins.Where(x => x.Id == hiveAdminId).ToArrayAsync();
+            DbHiveAdmin dbHiveAdmin = dbHiveAdmins.FirstOrDefault() ?? throw new RequestedResourceNotFoundException();
+
+            var dbHiveAdminImage = Mapper.Map<ImageFile, DbHiveAdminImage>(image);
+
+            dbHiveAdmin.ImageFile = dbHiveAdminImage;
 
             await _context.SaveChangesAsync();
 

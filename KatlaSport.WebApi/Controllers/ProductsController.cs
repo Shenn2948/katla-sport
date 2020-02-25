@@ -8,6 +8,7 @@ using KatlaSport.Services.ProductManagement;
 using KatlaSport.WebApi.CustomFilters;
 using Microsoft.Web.Http;
 using Swashbuckle.Swagger.Annotations;
+#pragma warning disable 1591
 
 namespace KatlaSport.WebApi.Controllers
 {
