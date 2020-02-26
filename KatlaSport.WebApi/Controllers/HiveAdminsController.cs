@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using KatlaSport.Services.HiveManagement;
@@ -64,7 +63,7 @@ namespace KatlaSport.WebApi.Controllers
             }
 
             var hiveAdmin = await _adminService.CreateHiveAdminAsync(updateHiveAdminRequest);
-            var location = $"/api/hiveAdmins/{hiveAdmin.Id}";
+            var location = $"/api/hiveAdmins/{hiveAdmin.HiveAdminId}";
             return Created(location, hiveAdmin);
         }
 
@@ -74,8 +73,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.BadRequest)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> UpdateHiveAdmin([FromUri] int hiveAdminId,
-            [FromBody] UpdateHiveAdminRequest updateHiveAdminRequest)
+        public async Task<IHttpActionResult> UpdateHiveAdmin([FromUri] int hiveAdminId, [FromBody] UpdateHiveAdminRequest updateHiveAdminRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -98,22 +96,20 @@ namespace KatlaSport.WebApi.Controllers
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            string root = HttpContext.Current.Server.MapPath("~/App_Data");
-            var provider = new MultipartFormDataStreamProvider(root);
+            var provider = new MultipartMemoryStreamProvider();
 
             try
             {
                 await Request.Content.ReadAsMultipartAsync(provider);
-
                 HttpContent httpContent = provider.Contents.FirstOrDefault();
+
                 if (httpContent != null)
                 {
-                    var imageName = httpContent.Headers.ContentDisposition.FileName.Trim('\"');
                     var content = await httpContent.ReadAsByteArrayAsync();
 
-                    var imageFile = new ImageFile {HiveAdminId = hiveAdminId, Name = imageName, Content = content};
-                    
-                    await _adminService.UpdateHiveAdminImageAsync(hiveAdminId, imageFile);
+                    var imageName = httpContent.Headers.ContentDisposition.FileName.Trim('\"');
+                    var imageFile = new ImageFile { Name = imageName, Content = Convert.ToBase64String(content), HiveAdminId = hiveAdminId };
+                    await _adminService.UpdateHiveAdminImageAsync(imageFile);
                 }
 
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));

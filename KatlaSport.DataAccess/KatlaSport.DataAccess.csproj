@@ -61,30 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" Exclude="obj\Debug\*.cs;obj\Release\*.cs;Migrations\*.*" />
-    <Compile Include="Migrations\201805190719490_InitialCreate.cs" />
-    <Compile Include="Migrations\201805190719490_InitialCreate.Designer.cs">
-      <DependentUpon>201805190719490_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002021236092_AddCategoryDescription.cs" />
-    <Compile Include="Migrations\202002021236092_AddCategoryDescription.Designer.cs">
-      <DependentUpon>202002021236092_AddCategoryDescription.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002021319139_AddProductDescriptionManCodePrice.cs" />
-    <Compile Include="Migrations\202002021319139_AddProductDescriptionManCodePrice.Designer.cs">
-      <DependentUpon>202002021319139_AddProductDescriptionManCodePrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002190746410_AddHiveAdminEntity.cs" />
-    <Compile Include="Migrations\202002190746410_AddHiveAdminEntity.Designer.cs">
-      <DependentUpon>202002190746410_AddHiveAdminEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002231155008_AddImageFileEntity.cs" />
-    <Compile Include="Migrations\202002231155008_AddImageFileEntity.Designer.cs">
-      <DependentUpon>202002231155008_AddImageFileEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002231204100_ImageFileNullable.cs" />
-    <Compile Include="Migrations\202002231204100_ImageFileNullable.Designer.cs">
-      <DependentUpon>202002231204100_ImageFileNullable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,26 +69,6 @@
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805190719490_InitialCreate.resx">
-      <DependentUpon>201805190719490_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002021236092_AddCategoryDescription.resx">
-      <DependentUpon>202002021236092_AddCategoryDescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002021319139_AddProductDescriptionManCodePrice.resx">
-      <DependentUpon>202002021319139_AddProductDescriptionManCodePrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190746410_AddHiveAdminEntity.resx">
-      <DependentUpon>202002190746410_AddHiveAdminEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002231155008_AddImageFileEntity.resx">
-      <DependentUpon>202002231155008_AddImageFileEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002231204100_ImageFileNullable.resx">
-      <DependentUpon>202002231204100_ImageFileNullable.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
