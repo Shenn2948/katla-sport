@@ -271,10 +271,10 @@ namespace KatlaSport.DataAccess.Migrations
                 new Customer { Id = 3, Name = "Sergey Tatarinov", Address = "Borisov, 100 let BSSR", Phone = "+37529-9834782" },
                 new Customer { Id = 4, Name = "Alexander Alexandrov", Address = "Brest, Repina-7", Phone = "+37529-9832872" });
 
-            context.HiveAdmins.AddOrUpdate(i => i.HiveAdminId,
-                new HiveAdmin() { HiveAdminId = 1, Name = "Admin1" },
-                new HiveAdmin() { HiveAdminId = 2, Name = "Admin2" },
-                new HiveAdmin() { HiveAdminId = 3, Name = "Admin3" });
+            context.HiveAdmins.AddOrUpdate(i => i.Id,
+                new HiveAdmin() { Id = 1, Name = "Admin1" },
+                new HiveAdmin() { Id = 2, Name = "Admin2" },
+                new HiveAdmin() { Id = 3, Name = "Admin3" });
         }
     }
 }

@@ -63,7 +63,7 @@ namespace KatlaSport.WebApi.Controllers
             }
 
             var hiveAdmin = await _adminService.CreateHiveAdminAsync(updateHiveAdminRequest);
-            var location = $"/api/hiveAdmins/{hiveAdmin.HiveAdminId}";
+            var location = $"/api/hiveAdmins/{hiveAdmin.Id}";
             return Created(location, hiveAdmin);
         }
 

@@ -8,7 +8,7 @@ namespace KatlaSport.DataAccess.ProductStoreHiveAdmin
     {
         /// <summary>Gets or sets the identifier.</summary>
         /// <value>The identifier.</value>
-        public int HiveAdminId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>
@@ -16,7 +16,7 @@ namespace KatlaSport.DataAccess.ProductStoreHiveAdmin
 
         /// <summary>Gets or sets the image file identifier.</summary>
         /// <value>The image file identifier.</value>
-        public int ImageFileId { get; set; }
+        public int? ImageFileId { get; set; }
 
         /// <summary>Gets or sets the image file.</summary>
         /// <value>The image file.</value>

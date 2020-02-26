@@ -6,7 +6,7 @@
         /// <summary>
         /// Gets or sets a hive admin identifier.
         /// </summary>
-        public int HiveAdminId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets a hive admin name.
