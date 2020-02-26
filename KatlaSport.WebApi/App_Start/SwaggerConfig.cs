@@ -1,8 +1,13 @@
 using System.Web.Http;
 using WebActivatorEx;
 using KatlaSport.WebApi;
-using Swashbuckle.Application;
+//using Swashbuckle.Application;
 using System;
+using System.Collections.Generic;
+using System.Web.Http.Description;
+using Swashbuckle.Application;
+using Swashbuckle.Swagger;
+#pragma warning disable 1591
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -17,6 +22,7 @@ namespace KatlaSport.WebApi
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
+                        c.OperationFilter<SwaggerFileOperationFilter>();
                         // By default, the service root url is inferred from the request used to access the docs.
                         // However, there may be situations (e.g. proxy and load-balanced environments) where this does not
                         // resolve correctly. You can workaround this by providing your own code to determine the root URL.
@@ -255,7 +261,44 @@ namespace KatlaSport.WebApi
 
         private static string GetXmlCommentsPath()
         {
-            return string.Format(@"{0}\bin\KatlaSport.WebApi.xml", AppDomain.CurrentDomain.BaseDirectory);
+            return $@"{AppDomain.CurrentDomain.BaseDirectory}\bin\KatlaSport.WebApi.xml";
+        }
+    }
+
+    public class SwaggerFileOperationFilter : IOperationFilter
+    {
+        public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+        {
+            if (operation.operationId.ToLower() == "hiveadmins_updatehiveadminimage")
+            {
+                if (operation.parameters == null)
+                {
+                    operation.parameters = new List<Parameter>(1);
+                }
+                else
+                {
+                    operation.parameters.Clear();
+                }
+
+                operation.parameters.Add(new Parameter()
+                {
+                    name = "File",
+                    @in = "formData",
+                    description = "Upload image",
+                    required = true,
+                    type = "file"
+                });
+
+                operation.parameters.Add(new Parameter
+                {
+                    name = "hiveAdminId",
+                    @in = "path",
+                    type = "integer",
+                    required = true
+                });
+
+                operation.consumes.Add("application/form-data");
+            }
         }
     }
 }

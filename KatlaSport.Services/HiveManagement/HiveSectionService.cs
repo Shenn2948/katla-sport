@@ -66,7 +66,7 @@ namespace KatlaSport.Services.HiveManagement
                 throw new RequestedResourceNotFoundException();
             }
 
-            var dbHiveSection = dbHiveSections[0];
+            StoreHiveSection dbHiveSection = dbHiveSections[0];
             if (dbHiveSection.IsDeleted != deletedStatus)
             {
                 dbHiveSection.IsDeleted = deletedStatus;
