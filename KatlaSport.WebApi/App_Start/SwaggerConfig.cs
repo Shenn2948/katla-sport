@@ -288,6 +288,15 @@ namespace KatlaSport.WebApi
                     required = true,
                     type = "file"
                 });
+
+                operation.parameters.Add(new Parameter
+                {
+                    name = "hiveAdminId",
+                    @in = "path",
+                    type = "integer",
+                    required = true
+                });
+
                 operation.consumes.Add("application/form-data");
             }
         }

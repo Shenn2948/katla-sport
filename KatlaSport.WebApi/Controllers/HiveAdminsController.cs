@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -72,10 +72,10 @@ namespace KatlaSport.WebApi.Controllers
         [Route("{hiveAdminId:int:min(1)}")]
         [SwaggerResponse(HttpStatusCode.NoContent, Description = "Updates an existed HiveAdmin.")]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
-        [SwaggerResponse(HttpStatusCode.Conflict)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> UpdateHiveAdmin([FromUri] int hiveAdminId, [FromBody] UpdateHiveAdminRequest updateHiveAdminRequest)
+        public async Task<IHttpActionResult> UpdateHiveAdmin([FromUri] int hiveAdminId,
+            [FromBody] UpdateHiveAdminRequest updateHiveAdminRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -86,38 +86,13 @@ namespace KatlaSport.WebApi.Controllers
             return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
         }
 
-        //[HttpPost, Route("softwarepackage")]
-        //[Route("{hiveAdminId:int:min(1)}/image")]
-        //[SwaggerResponse(HttpStatusCode.NoContent, Description = "Updates an existed HiveAdmin image.")]
-        //[SwaggerResponse(HttpStatusCode.BadRequest)]
-        //[SwaggerResponse(HttpStatusCode.Conflict)]
-        //[SwaggerResponse(HttpStatusCode.NotFound)]
-        //[SwaggerResponse(HttpStatusCode.InternalServerError)]
-        //public async Task<IHttpActionResult> UpdateHiveAdminImage([FromUri] int hiveAdminId, HttpPostedFileBase upload)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    if (upload != null && upload.ContentLength > 0)
-        //    {
-        //        var imageFile = new ImageFile {HiveAdminId = hiveAdminId, Name = Path.GetFileName(upload.FileName)};
-        //        using (var reader = new BinaryReader(upload.InputStream))
-        //        {
-        //            imageFile.Content = reader.ReadBytes(upload.ContentLength);
-        //        }
-
-        //        await _adminService.UpdateHiveAdminImageAsync(hiveAdminId, imageFile);
-        //    }
-
-        //    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
-        //}
-
-        [HttpPost, Route("updatehiveadminimage")]
-        public async Task<IHttpActionResult> UpdateHiveAdminImage()
+        [HttpPost, Route("{hiveAdminId:int:min(1)}/image")]
+        [SwaggerResponse(HttpStatusCode.NoContent, Description = "Updates an existed HiveAdmin image.")]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.UnsupportedMediaType)]
+        public async Task<IHttpActionResult> UpdateHiveAdminImage([FromUri] int hiveAdminId)
         {
-            // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent())
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
@@ -128,15 +103,19 @@ namespace KatlaSport.WebApi.Controllers
 
             try
             {
-                // Read the form data.
                 await Request.Content.ReadAsMultipartAsync(provider);
 
-                // This illustrates how to get the file names.
-                foreach (MultipartFileData file in provider.FileData)
+                HttpContent httpContent = provider.Contents.FirstOrDefault();
+                if (httpContent != null)
                 {
-                    Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                    Trace.WriteLine("Server file path: " + file.LocalFileName);
+                    var imageName = httpContent.Headers.ContentDisposition.FileName.Trim('\"');
+                    var content = await httpContent.ReadAsByteArrayAsync();
+
+                    var imageFile = new ImageFile {HiveAdminId = hiveAdminId, Name = imageName, Content = content};
+                    
+                    await _adminService.UpdateHiveAdminImageAsync(hiveAdminId, imageFile);
                 }
+
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
             }
             catch (Exception e)
