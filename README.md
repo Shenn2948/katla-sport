@@ -26,3 +26,4 @@
 12. [Hive Editor](docs/step12.md) <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 13. [HiveSectionsController+HiveSectionService](docs/step13.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
 14. [Hive Sectior Editor](docs/step14.md)  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20">
+15. [Additional-task]()  <img src="https://github.com/Shenn2948/katla-sport/blob/master/images/iconfinder_Tick_Mark_1398911.png" width="20"> - Added 2 new entities HiveAdmin and HiveAdminImage. Added image upload to database. Added swagger upload file form instead of UI.
