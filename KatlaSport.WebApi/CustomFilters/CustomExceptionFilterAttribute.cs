@@ -1,8 +1,9 @@
-﻿using KatlaSport.Services;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http.Filters;
+
+using KatlaSport.Services;
 
 namespace KatlaSport.WebApi.CustomFilters
 {
@@ -19,7 +20,7 @@ namespace KatlaSport.WebApi.CustomFilters
             {
                 context.Response = new HttpResponseMessage(HttpStatusCode.Conflict);
             }
-            else if (context.Exception is Exception)
+            else if (context.Exception is Exception ex)
             {
                 context.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
             }

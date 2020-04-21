@@ -4,10 +4,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+
 using KatlaSport.Services.ProductManagement;
 using KatlaSport.WebApi.CustomFilters;
+
 using Microsoft.Web.Http;
+
 using Swashbuckle.Swagger.Annotations;
+
 #pragma warning disable 1591
 
 namespace KatlaSport.WebApi.Controllers
@@ -37,6 +41,7 @@ namespace KatlaSport.WebApi.Controllers
             {
                 return BadRequest("start");
             }
+
             if (amount < 0)
             {
                 return BadRequest("end");
@@ -71,8 +76,8 @@ namespace KatlaSport.WebApi.Controllers
             }
 
             var product = await _productService.CreateProductAsync(createRequest);
-            var location = string.Format("/api/products/{0}", product.Id);
-            return Created<Product>(location, product);
+            var location = $"/api/products/{product.Id}";
+            return Created(location, product);
         }
 
         [HttpPut]

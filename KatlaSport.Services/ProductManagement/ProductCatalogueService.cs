@@ -32,7 +32,7 @@ namespace KatlaSport.Services.ProductManagement
         public async Task<List<ProductListItem>> GetProductsAsync(int start, int amount)
         {
             var dbProducts = await _context.Products.OrderBy(p => p.Id).Skip(start).Take(amount).ToArrayAsync();
-            var products = dbProducts.Select(p => Mapper.Map<ProductListItem>(p)).ToList();
+            var products = dbProducts.Select(Mapper.Map<ProductListItem>).ToList();
 
             return products;
         }
@@ -47,7 +47,7 @@ namespace KatlaSport.Services.ProductManagement
             }
 
             var dbProducts = await _context.Products.OrderBy(p => p.Id).Where(p => p.CategoryId == productCategoryId).ToArrayAsync();
-            var products = dbProducts.Select(p => Mapper.Map<ProductCategoryProductListItem>(p)).ToList();
+            var products = dbProducts.Select(Mapper.Map<ProductCategoryProductListItem>).ToList();
 
             return products;
         }
